@@ -16,9 +16,7 @@ def letter_count(text: str) -> dict:
             if letter not in letter_count_dict:
                 letter_count_dict[letter] = [letter]
             else:
-                update_value = [*letter_count_dict[letter], letter]
-                letter_count_dict.update({letter: update_value})
-    # print(letter_count)
+                letter_count_dict[letter].append(letter)
     return letter_count_dict
 
 
@@ -32,6 +30,7 @@ trouble and I stay here just the same."
     letter_count_dict = letter_count(text)
     printer = pprint.PrettyPrinter(indent=10, width=80, depth=6)
     printer.pprint(letter_count_dict)
+
 
 if __name__ == "__main__":
     main()
